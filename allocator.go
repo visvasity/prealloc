@@ -68,7 +68,7 @@ func (v *Allocator) Close() error {
 		log.Printf("could not free %d temporary blocks (ignored): %v", len(v.blocks), err)
 	}
 
-	storage.ReleaseBlocks(v.blocks)
+	storage.ReleaseBlocks(v.blocks...)
 	v.blocks = nil
 	return nil
 }
